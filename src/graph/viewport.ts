@@ -50,6 +50,7 @@ export class Viewport {
     this.bindHover();
 
     this.resize();
+    console.log('my fork');
     window.addEventListener('resize', () => this.resize());
   }
 
