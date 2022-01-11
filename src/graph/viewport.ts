@@ -184,6 +184,8 @@ export class Viewport {
   }
 
   focusElement(id: string) {
+    if (this.zoomer === undefined) return null;
+
     let bbBox = document.getElementById(id).getBoundingClientRect();
     let currentPan = this.zoomer.getPan();
     let viewPortSizes = (<any>this.zoomer).getSizes();
