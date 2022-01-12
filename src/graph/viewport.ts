@@ -49,9 +49,12 @@ export class Viewport {
     this.bindClick();
     this.bindHover();
 
-    this.resize = this.resize.bind(this);
     this.resize();
-    window.addEventListener('resize', this.resize);
+    window.addEventListener('resize', this.resizeHandler);
+  }
+
+  resizeHandler() {
+    this.resize();
   }
 
   resize() {
@@ -220,7 +223,7 @@ export class Viewport {
   }
 
   destroy() {
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener('resize', this.resizeHandler);
     try {
       this.zoomer.destroy();
     } catch (e) {
