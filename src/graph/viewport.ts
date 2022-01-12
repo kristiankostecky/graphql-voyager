@@ -49,8 +49,8 @@ export class Viewport {
     this.bindClick();
     this.bindHover();
 
+    this.resize = this.resize.bind(this);
     this.resize();
-    this.resize.bind(this);
     window.addEventListener('resize', this.resize);
   }
 
